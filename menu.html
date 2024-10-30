@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .menu-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .order-section {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Restaurant Menu</h1>
+        <div id="menu">
+            <p>(1) Veg Biryani - $2 only.</p>
+            <p>(2) Veg Palao - $1.5 only.</p>
+            <p>(3) Chinese Rice - $2.5 only.</p>
+            <p>(4) Veg Burger - $1 only.</p>
+            <p>(5) Nawabi Pizza - $4.5 only.</p>
+            <p>(6) 2.5 Litre Coke - $1.75 only.</p>
+            <p>(7) Sahi Paneer - $2.75 only.</p>
+            <p>(8) Rajasthani Thali - $3.75 only.</p>
+        </div>
+        <div class="order-section">
+            <label for="order">Please select the order number:</label> 
+            <input type="number" id="order" min="1" max="8" required>
+            <br>
+            <label for="no_deals">Please enter the number of deals:</label>
+            <input type="number" id="no_deals" min="1" required>
+            <br>
+            <button onclick="calculateTotal()">Place Order</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const order = document.getElementById("order").value;
+            const noDeals = document.getElementById("no_deals").value;
+            let price = 0;
+            let orderName = "";
+
+            switch (parseInt(order)) {
+                case 1:
+                    price = 2;
+                    orderName = "Veg Biryani";
+                    break;
+                case 2:
+                    price = 1.5;
+                    orderName = "Veg Palao";
+                    break;
+                case 3:
+                    price = 2.5;
+                    orderName = "Chinese Rice";
+                    break;
+                case 4:
+                    price = 1;
+                    orderName = "Veg Burger";
+                    break;
+                case 5:
+                    price = 4.5;
+                    orderName = "Nawabi Pizza";
+                    break;
+                case 6:
+                    price = 1.75;
+                    orderName = "2.5 Litre Coke";
+                    break;
+                case 7:
+                    price = 2.75;
+                    orderName = "Sahi Paneer";
+                    break;
+                case 8:
+                    price = 3.75;
+                    orderName = "Rajasthani Thali";
+                    break;
+                default:
+                    document.getElementById("result").innerHTML = "<p>Invalid order number. Please try again.</p>";
+                    return;
+            }
+
+            const totalPrice = price * noDeals;
+            document.getElementById("result").innerHTML = `
+                <p>Order: ${orderName}</p>
+                <p>Number of deals: ${noDeals}</p>
+                <p>Price of each deal: $${price} only.</p>
+                <p>Total price: $${totalPrice} only.</p>
+                <p>~------THANK YOU FOR COMING------~</p>
+            `;
+        }
+    </script>
+</body>
+</html>
