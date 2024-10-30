@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Basic Styles */
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .food-menu-heading { text-align: center; font-size: 2em; margin-top: 20px; }
+        .food-menu-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .food-menu-item { border: 1px solid #ddd; padding: 10px; width: 300px; text-align: center; }
+        .food-img img { width: 100%; height: auto; }
+        .btn-primary { background-color: #4CAF50; color: white; padding: 8px 16px; border: none; cursor: pointer; }
+        .btn-primary:hover { background-color: #45a049; }
+
+        /* Modal Styling */
+        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.5); }
+        .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 400px; text-align: center; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+        .close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer; }
+    </style>
+</head>
+
+<body>
+   <!-- Navbar with Cart Icon -->
+   <nav class="navbar">
+    <div class="container">
+        <ul class="menu-items">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#testimonials">About</a></li>
+            <li><a href="#food-menu">Menu</a></li>
+            <li><a href="#testimonials">Testimonial</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="javascript:void(0);" onclick="showCart()" id="cart" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+            </a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Food Menu Section -->
+    <section id="food-menu">
+        <h2 class="food-menu-heading">Food Menu</h2>
+        <div class="food-menu-container container">
+            <!-- Food Menu Item 1 -->
+            <div class="food-menu-item">
+                <div class="food-img"><img src="https://i.postimg.cc/wTLMsvSQ/food-menu1.jpg" alt=""/></div>
+                <div class="food-description">
+                    <h2 class="food-title">Food Menu Item 1</h2>
+                    <p>Mediterranean diet with plenty of plant-based food.</p>
+                    <p class="food-price">Price: &#8377; 250</p>
+                    <button onclick="addToCart('Food Menu Item 1', 250)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Food Menu Item 2 -->
+        <div class="food-menu-item">
+            <div class="food-img">
+                <img src="C:\Users\Nishant\Downloads\pexels-robinstickel-70497.jpg"  alt=""  />
+            </div>
+            <div class="food-description">
+                <h2 class="food-title">Food Menu Item 2</h2>
+                <p>Fresh Burger and french fries.</p>
+                <p class="food-price">Price: &#8377; 150</p>
+                <button onclick="addToCart('Food Menu Item 2', 150)" class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Food Menu Item 3 -->
+        <div class="food-menu-item">
+            <div class="food-img">
+                <img src="C:\Users\Nishant\Downloads\pexels-enginakyurt-1437267.jpg"  alt="" />
+            </div>
+            <div class="food-description">
+                <h2 class="food-title">Food Menu Item 3</h2>
+                <p>Masala Pasta which is the Best food Forever.</p>
+                <p class="food-price">Price: &#8377; 200</p>
+                <button onclick="addToCart('Food Menu Item 3', 200)" class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Food Menu Item 4 -->
+        <div class="food-menu-item">
+            <div class="food-img">
+                <img src="https://i.postimg.cc/Yq98p5Z7/food-menu4.jpg" alt="" />
+            </div>
+            <div class="food-description">
+                <h2 class="food-title">Food Menu Item 4</h2>
+                <p>Delicious Food.</p>
+                <p class="food-price">Price: &#8377; 180</p>
+                <button onclick="addToCart('Food Menu Item 4', 180)" class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Food Menu Item 5 -->
+        <div class="food-menu-item">
+            <div class="food-img">
+                <img src="C:\Users\Nishant\Downloads\pexels-anna-pou-9345670.jpg" alt="" />
+            </div>
+            <div class="food-description">
+                <h2 class="food-title">Food Menu Item 5</h2>
+                <p>Yummy food.</p>
+                <p class="food-price">Price: &#8377; 220</p>
+                <button onclick="addToCart('Food Menu Item 5', 220)" class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Food Menu Item 6 -->
+        <div class="food-menu-item">
+            <div class="food-img">
+                <img src="https://i.postimg.cc/Jnxc8xQt/food-menu6.jpg" alt="" />
+            </div>
+            <div class="food-description">
+                <h2 class="food-title">Food Menu Item 6</h2>
+                <p>The food menu items of the restaurants are very hygienic and have good quality.</p>
+                <p class="food-price">Price: &#8377; 230</p>
+                <button onclick="addToCart('Food Menu Item 6', 230)" class="btn btn-primary">Add to Cart</button>
+            </div>
+         </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2 class="testimonial-title">What Our Customers Say</h2>
+        <div class="testimonial-container container">
+            <div class="testimonial-box">
+                <div class="customer-detail">
+                    <div class="customer-photo">
+                        <img src="https://i.postimg.cc/5Nrw360Y/male-photo1.jpg" alt="" style="width: 100%; height: auto;"/>
+                        <p class="customer-name">Ross Lee</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="testimonial-text">All the services of the restaurants are very excellent.</p>
+            </div>
+            <div class="testimonial-box">
+                <div class="customer-detail">
+                    <div class="customer-photo">
+                        <img src="https://i.postimg.cc/sxd2xCD2/female-photo1.jpg" alt="" style="width: 100%; height: auto;"/>
+                        <p class="customer-name">Amelia Watson</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="testimonial-text">The restaurant services are the best.</p>
+            </div>
+            <div class="testimonial-box">
+                <div class="customer-detail">
+                    <div class="customer-photo">
+                        <img src="https://i.postimg.cc/fy90qvkV/male-photo3.jpg" alt="" style="width: 100%; height: auto;" />
+                        <p class="customer-name">Naresh Sharma</p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="testimonial-text">The restaurant is the best in food services.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container container">
+            <div class="contact-img">
+                <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="" />
+            </div>
+            <div class="form-container">
+                <h2>Contact Us</h2>
+                <input type="text" placeholder="Your Name" />
+                <input type="email" placeholder="E-Mail" />
+                <textarea cols="30" rows="6" placeholder="Type Your Message"></textarea>
+                <a href="#" class="btn btn-primary">Submit</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Cart and Payment Functionality -->
+    <script>
+        let cart = []; // Array to store cart items
+
+        // Function to add item to cart
+        function addToCart(item, price) {
+            cart.push({ item, price });
+            updateCartCount();
+            alert(`${item} added to cart!`);
+        }
+
+        // Update the cart item count in the navbar
+        function updateCartCount() {
+            document.getElementById("cart-count").textContent = cart.length;
+        }
+
+        // Display cart items and total price
+        function showCart() {
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+
+            let cartItems = "Items in Cart:\n";
+            let total = 0;
+
+            cart.forEach((entry, index) => {
+                cartItems += `${index + 1}. ${entry.item} - ₹${entry.price}\n`;
+                total += entry.price;
+            });
+
+            cartItems += `\nTotal Price: ₹${total}`;
+            if (confirm(cartItems + "\n\nProceed to payment?")) {
+                openModal('payment-modal');
+            }
+        }
+        
+        // Function to open the payment modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        // Function to close the modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Process Payment with CVV check
+        function processPayment() {
+            // Get card details
+            const cardNumber = document.getElementById("card-number").value;
+            const expiration = document.getElementById("expiration").value;
+            const cvv = document.getElementById("cvv").value;
+
+            // Validate the inputs
+            if (!cardNumber || !expiration || !cvv) {
+                alert("Please fill in all payment details.");
+                return;
+            }
+            
+            if (!/^\d{16}$/.test(cardNumber)) {
+                alert("Please enter a valid 16-digit card number.");
+                return;
+            }
+
+            if (!/^\d{2}\/\d{2}$/.test(expiration)) {
+                alert("Please enter a valid expiration date (MM/YY).");
+                return;
+            }
+
+            if (!/^\d{3}$/.test(cvv)) {
+                alert("Please enter a valid 3-digit CVV.");
+                return;
+            }
+
+            // Simulate payment processing
+            alert("Processing payment...");
+            closeModal('payment-modal'); // Close payment modal
+            alert("Payment successful! Thank you for your purchase.");
+            cart = []; // Clear cart after payment
+            updateCartCount();
+        }
+    </script>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('payment-modal')">&times;</span>
+            <h2>Payment Details</h2>
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+            <label for="expiration">Expiration Date:</label>
+            <input type="text" id="expiration" placeholder="MM/YY">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="123">
+            <button id="pay" onclick="processPayment()">Pay</button>
+        </div>
+    </div>
+</body>
+</html>
