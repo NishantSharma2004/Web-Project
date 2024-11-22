@@ -1,0 +1,159 @@
+<!--college_management -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple College Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #student-list {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .student-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Simple College Management System</h1>
+
+<div class="form-container">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="reg">Registration Number:</label>
+    <input type="number" id="reg" required>
+
+    <label for="branch">Branch:</label>
+    <input type="text" id="branch" required>
+
+    <button onclick="addStudent()">Add Student</button>
+    <button onclick="displayStudents()">Display All Students</button>
+</div>
+
+<div id="student-list"></div>
+
+<script>
+    let students = [];
+
+    function addStudent() {
+        const name = document.getElementById('name').value;
+        const reg = document.getElementById('reg').value;
+        const branch = document.getElementById('branch').value;
+
+        const student = { name, reg, branch };
+
+        if (students.find(s => s.reg === reg)) {
+            alert('The registration number already exists!');
+        } else {
+            students.push(student);
+            alert('Student added successfully!');
+        }
+
+        clearForm();
+    }
+
+    function displayStudents() {
+        const studentList = document.getElementById('student-list');
+        studentList.innerHTML = '';
+
+        students.forEach((student, index) => {
+            const studentItem = document.createElement('div');
+            studentItem.className = 'student-item';
+            studentItem.innerHTML = `
+                <p><strong>Name:</strong> ${student.name}</p>
+                <p><strong>Registration Number:</strong> ${student.reg}</p>
+                <p><strong>Branch:</strong> ${student.branch}</p>
+                <button onclick="editStudent(${index})">Edit</button>
+                <button onclick="deleteStudent(${index})">Delete</button>
+            `;
+            studentList.appendChild(studentItem);
+        });
+    }
+
+    function deleteStudent(index) {
+        students.splice(index, 1);
+        displayStudents();
+    }
+
+    function editStudent(index) {
+        const student = students[index];
+        document.getElementById('name').value = student.name;
+        document.getElementById('reg').value = student.reg;
+        document.getElementById('branch').value = student.branch;
+
+        deleteStudent(index);
+    }
+
+    function clearForm() {
+        document.getElementById('name').value = '';
+        document.getElementById('reg').value = '';
+        document.getElementById('branch').value = '';
+    }
+</script>
+
+</body>
+</html>
+
