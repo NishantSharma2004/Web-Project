@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Royal Restraunt</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container container">
+        <input type="checkbox" name="" id="" />
+        <div class="hamburger-lines">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </div>
+        <ul class="menu-items">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#food">Category</a></li>
+          <li><a href="#food-menu">Menu</a></li>
+          <li><a href="#testimonials">Testimonial</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="javascript:void(0);" onclick="showCart()" id="cart" class="cart-icon">
+            <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+        </a></li>
+        </ul>
+        <h1 class="logo">RR</h1>
+      </div>
+    </nav>
+    <section class="showcase-area" id="showcase">
+      <div class="showcase-container">
+        <h1 class="main-title">Eat Right Food</h1>
+        <p>Eat Healty, it is good for our health.</p>
+        <a href="#food-menu" class="btn btn-primary">Menu</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-wrapper container">
+        <div class="about-text">
+          <p class="small">About Us</p>
+          <h2>We've beem making healthy food last for 10 years</h2>
+          <p>
+            At Royal Restraunt, we are committed to offering the freshest and healthiest meals to our customers.
+            Our journey started a decade ago with the mission of combining taste and nutrition in every dish.
+            Whether you're looking for a quick bite or a wholesome meal, we have something for everyone!
+          </p>
+        </div>
+        <div class="about-img">
+          <img src="https://i.postimg.cc/mgpwzmx9/about-photo.jpg" alt="food" />
+        </div>
+      </div>
+    </section>
+    <section id="food">
+      <h2>Types of food</h2>
+      <div class="food-container container">
+        <div class="food-type fruite">
+          <div class="img-container">
+            <img src="https://i.postimg.cc/yxThVPXk/food1.jpg" alt="error" />
+            <div class="img-content">
+              <h3>fruite</h3>
+              <a
+                href="https://en.wikipedia.org/wiki/Fruit"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="food-type vegetable">
+          <div class="img-container">
+            <img src="https://i.postimg.cc/Nffm6Rkk/food2.jpg" alt="error" />
+            <div class="img-content">
+              <h3>vegetable</h3>
+              <a
+                href="https://en.wikipedia.org/wiki/Vegetable"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="food-type grin">
+          <div class="img-container">
+            <img src="https://i.postimg.cc/76ZwsPsd/food3.jpg" alt="error" />
+            <div class="img-content">
+              <h3>grin</h3>
+              <a
+                href="https://en.wikipedia.org/wiki/Grain"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="food-menu">
+      <h2 class="food-menu-heading">Food Menu</h2>
+      <div class="food-menu-container container">
+        <div class="food-menu-item">
+          <div class="food-img">
+            <img src="https://i.postimg.cc/wTLMsvSQ/food-menu1.jpg" alt="" />
+          </div>
+          <div class="food-description">
+            <h2 class="food-titile">Food Menu Item 1</h2>
+            <p>
+              <p><b>Greek Salad</b></p>
+              A fresh and healthy salad with avocado, tomatoes, feta cheese, black olives, and leafy greens.
+            </p>
+            <p class="food-price">Price: &#8377; 250</p>
+            <button onclick="addToCart('Food Menu Item 1', 250)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="food-menu-item">
+          <div class="food-img">
+            <img
+              src="https://i.postimg.cc/sgzXPzzd/food-menu2.jpg"
+              alt="error"
+            />
+          </div>
+          <div class="food-description">
+            <h2 class="food-titile">Food Menu Item 2</h2>
+            <p>
+             <p><b> Granola & Banana Yogurt Bowl</b></p>
+             A nutritious breakfast bowl with yogurt, granola, banana slices, and nuts.
+            </p>
+            <p class="food-price">Price: &#8377; 250</p>
+            <button onclick="addToCart('Food Menu Item 2', 250)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+        <div class="food-menu-item">
+          <div class="food-img">
+            <img src="https://i.postimg.cc/8zbCtYkF/food-menu3.jpg" alt="" />
+          </div>
+          <div class="food-description">
+            <h2 class="food-titile">Food Menu Item 3</h2>
+            <p>
+              <p><b>Green Detox Salad</b></p>
+              A nutrient-packed salad with avocado, broccoli, green bell pepper, asparagus, and kale.
+            </p>
+            <button onclick="addToCart('Food Menu Item 3', 250)" class="btn btn-primary">Add to Cart</button>
+            <p class="food-price">Price: &#8377; 250</p>
+          </div>
+        </div>
+        <div class="food-menu-item">
+          <div class="food-img">
+            <img src="https://i.postimg.cc/Yq98p5Z7/food-menu4.jpg" alt="" />
+          </div>
+          <div class="food-description">
+            <h2 class="food-titile">Food Menu Item 4</h2>
+            <p>
+              <p><b>Vegan Protein Meal Box</b></p>
+              A healthy meal prep box with quinoa, corn, tomatoes, olives, and leafy greens.
+            </p>
+            <p class="food-price">Price: &#8377; 250</p>
+            <button onclick="addToCart('Food Menu Item 4', 250)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+        <div class="food-menu-item">
+          <div class="food-img">
+            <img src="https://i.postimg.cc/KYnDqxkP/food-menu5.jpg" alt="" />
+          </div>
+          <div class="food-description">
+            <h2 class="food-titile">Food Menu Item 5</h2>
+            <p>
+              <p><b>Mediterranean Snack Platter</b></p>
+              A balanced snack platter featuring hummus, fresh vegetables, olives, crackers, and avocado.
+            </p>
+            <p class="food-price">Price: &#8377; 250</p>
+            <button onclick="addToCart('Food Menu Item 5', 250)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+        <div class="food-menu-item">
+          <div class="food-img">
+            <img src="https://i.postimg.cc/Jnxc8xQt/food-menu6.jpg" alt="" />
+          </div>
+          <div class="food-description">
+            <h2 class="food-titile">Food Menu Item 6</h2>
+            <p>
+              <p><b>Acai Berry Smoothie Bowl</b></p>
+              A vibrant smoothie bowl with blended acai, topped with strawberries, blueberries, kiwi, mango, pomegranate, and coconut flakes.
+            </p>
+            <p class="food-price">Price: &#8377; 250</p>
+            <button onclick="addToCart('Food Menu Item 1', 250)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="testimonials">
+      <h2 class="testimonial-title">What Our Customers Say</h2>
+      <div class="testimonial-container container">
+        <div class="testimonial-box">
+          <div class="customer-detail">
+            <div class="customer-photo">
+              <img src="https://i.postimg.cc/5Nrw360Y/male-photo1.jpg" alt="" />
+              <p class="customer-name">Ross Lee</p>
+            </div>
+          </div>
+          <div class="star-rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+          </div>
+          <p class="testimonial-text">
+            The food here is absolutely delicious! Fresh ingredients, amazing flavors, and excellent service. Highly recommended.
+          </p>
+        </div>
+        <div class="testimonial-box">
+          <div class="customer-detail">
+            <div class="customer-photo">
+              <img
+                src="https://i.postimg.cc/sxd2xCD2/female-photo1.jpg"
+                alt=""
+              />
+              <p class="customer-name">Amelia Watson</p>
+            </div>
+          </div>
+          <div class="star-rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+          </div>
+          <p class="testimonial-text">
+            A wonderful place to enjoy healthy yet tasty meals,the ambiance is cozy, and the menu has something for everyone.
+          </p>
+        </div>
+        <div class="testimonial-box">
+          <div class="customer-detail">
+            <div class="customer-photo">
+              <img src="https://i.postimg.cc/fy90qvkV/male-photo3.jpg" alt="" />
+              <p class="customer-name">Ben Roy</p>
+            </div>
+          </div>
+          <div class="star-rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+          </div>
+          <p class="testimonial-text">
+            I've been a regular customer for years. The quality never disappoints. Best place for food lovers.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="contact-container container">
+        <div class="contact-img">
+          <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="" />
+        </div>
+    
+        <div class="form-container">
+          <h2>Contact Us</h2>
+          <input type="text" placeholder="Your Name" />
+          <input type="email" placeholder="E-Mail" />
+          <textarea
+            cols="30"
+            rows="6"
+            placeholder="Type Your Message"
+          ></textarea>
+          <a href="#" class="btn btn-primary">Submit</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <!-- Cart and Payment Functionality -->
+    <script>
+      let cart = []; // Array to store cart items
+
+      // Function to add item to cart
+      function addToCart(item, price) {
+          cart.push({ item, price });
+          updateCartCount();
+          alert(`${item} added to cart!`);
+      }
+
+      // Update the cart item count in the navbar
+      function updateCartCount() {
+          document.getElementById("cart-count").textContent = cart.length;
+      }
+
+      // Display cart items and total price
+      function showCart() {
+          if (cart.length === 0) {
+              alert("Your cart is empty.");
+              return;
+          }
+
+          let cartItems = "Items in Cart:\n";
+          let total = 0;
+
+          cart.forEach((entry, index) => {
+              cartItems += `${index + 1}. ${entry.item} - ₹${entry.price}\n`;
+              total += entry.price;
+          });
+
+          cartItems += `\nTotal Price: ₹${total}`;
+          if (confirm(cartItems + "\n\nProceed to payment?")) {
+              openModal('payment-modal');
+          }
+      }
+      
+      // Function to open the payment modal
+      function openModal(modalId) {
+          document.getElementById(modalId).style.display = 'block';
+      }
+
+      // Function to close the modal
+      function closeModal(modalId) {
+          document.getElementById(modalId).style.display = 'none';
+      }
+
+      // Process Payment with CVV check
+      function processPayment() {
+          // Get card details
+          const cardNumber = document.getElementById("card-number").value;
+          const expiration = document.getElementById("expiration").value;
+          const cvv = document.getElementById("cvv").value;
+
+          // Validate the inputs
+          if (!cardNumber || !expiration || !cvv) {
+              alert("Please fill in all payment details.");
+              return;
+          }
+          
+          if (!/^\d{16}$/.test(cardNumber)) {
+              alert("Please enter a valid 16-digit card number.");
+              return;
+          }
+
+          if (!/^\d{2}\/\d{2}$/.test(expiration)) {
+              alert("Please enter a valid expiration date (MM/YY).");
+              return;
+          }
+
+          if (!/^\d{3}$/.test(cvv)) {
+              alert("Please enter a valid 3-digit CVV.");
+              return;
+          }
+
+          // Simulate payment processing
+          alert("Processing payment...");
+          closeModal('payment-modal'); // Close payment modal
+          alert("Payment successful! Thank you for your purchase.");
+          cart = []; // Clear cart after payment
+          updateCartCount();
+      }
+  </script>
+
+  <!-- Payment Modal -->
+  <div id="payment-modal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal('payment-modal')">&times;</span>
+          <h2>Payment Details</h2>
+          <label for="card-number">Card Number:</label>
+          <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+          <label for="expiration">Expiration Date:</label>
+          <input type="text" id="expiration" placeholder="MM/YY">
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" placeholder="123">
+          <button id="pay" onclick="processPayment()">Pay</button>
+      </div>
+  </div>
+    </section>
+    <footer id="footer">
+      <h2>Royal Restraunt &copy; all rights reserved</h2>
+    </footer>
+  </body>
+   <!-- Google Map -->
+   <div style="margin-top: 20px;">
+    <h3 style="text-align: center;">Find Us Here</h3>
+    <div style="display: flex; justify-content: center;">
+        <iframe 
+            src="https://maps.app.goo.gl/mWVSPXursnVpcP1s9" 
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+</section>
+  <!-- 
+    .................../ JS Code for smooth scrolling /...................... -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Add smooth scrolling to all links
+      $("a").on("click", function (event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top,
+            },
+            800,
+            function () {
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            }
+          );
+        } // End if
+      });
+    });
+  </script>
+</html>
