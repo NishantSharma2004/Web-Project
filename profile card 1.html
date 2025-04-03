@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #03a9f4, #fff);
+      }
+
+      .card {
+        width: 320px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .img-bx {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        overflow: hidden;
+        margin-bottom: 15px;  /* Increased spacing */
+      }
+
+      .img-bx img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .content h2 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 5px; /* Added spacing */
+      }
+
+      .content span {
+        font-size: 0.9em;
+        color: #03a9f4;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 15px; /* Increased spacing */
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .social-links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        color: #03a9f4;
+        font-size: 1.2em;
+        text-decoration: none;
+        transition: 0.3s;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-links a:hover {
+        background: #03a9f4;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="img-bx">
+        <img src="C:\Users\star\OneDrive\Desktop\html\Profile Card\nishant sharma.jpg" alt="Nishant Sharma" />
+      </div>
+      <div class="content">
+        <h2>Nishant Sharma</h2>
+        <span>Aspiring Data Scientist & Web Developer</span>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://github.com/NishantSharma2004"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/nishant-sharma-556a62258"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
